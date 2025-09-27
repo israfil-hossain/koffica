@@ -77,6 +77,7 @@ export default function CheckoutPage() {
       toast.success('Order placed successfully!');
       router.push(`/order-confirmation?orderId=${order.id}`);
     } catch (error) {
+      console.error('Order placement failed:', error);
       toast.error('Failed to place order. Please try again.');
     } finally {
       setIsLoading(false);

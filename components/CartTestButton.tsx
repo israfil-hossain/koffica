@@ -15,7 +15,7 @@ const CartTestButton = () => {
     name: 'Test Coffee Bean',
     price: 29.99,
     stock: 10,
-    slug: { current: 'test-coffee-bean' },
+    slug: { current: 'test-coffee-bean', _type: 'slug' as const },
   };
 
   const handleTestAdd = () => {

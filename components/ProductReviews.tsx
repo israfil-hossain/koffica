@@ -61,6 +61,9 @@ export default function ProductReviews({ productId, productName }: ProductReview
     author: '',
   });
 
+  // TODO: In production, use productId to fetch reviews and productName for display
+  console.log(`Loading reviews for product: ${productId} - ${productName}`);
+
   const averageRating = mockReviews.reduce((sum, review) => sum + review.rating, 0) / mockReviews.length;
   const ratingCounts = [5, 4, 3, 2, 1].map(rating => 
     mockReviews.filter(review => review.rating === rating).length

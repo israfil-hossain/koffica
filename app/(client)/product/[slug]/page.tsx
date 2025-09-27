@@ -105,13 +105,13 @@ const ProductPage = async ({
           </p>
 
           {/* Coffee specifications */}
-          {(product?.flavorNotes || product?.brewingMethod || product?.caffeine) && (
+          {(product?.flavorNotes || product?.brewingRecommendations) && (
             <div className="space-y-3 p-4 bg-gray-900 rounded-lg">
               {product?.flavorNotes && product.flavorNotes.length > 0 && (
                 <div>
                   <h4 className="text-sm font-semibold text-yellow-400 mb-2">Flavor Notes:</h4>
                   <div className="flex flex-wrap gap-2">
-                    {product.flavorNotes.map((note, index) => (
+                    {product.flavorNotes.map((note: string, index: number) => (
                       <span key={index} className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">
                         {note}
                       </span>
@@ -120,27 +120,13 @@ const ProductPage = async ({
                 </div>
               )}
 
-              {product?.brewingMethod && product.brewingMethod.length > 0 && (
+              {product?.brewingRecommendations && (
                 <div>
-                  <h4 className="text-sm font-semibold text-yellow-400 mb-2">Recommended Brewing:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {product.brewingMethod.map((method, index) => (
-                      <span key={index} className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">
-                        {method.replace('-', ' ')}
-                      </span>
-                    ))}
-                  </div>
+                  <h4 className="text-sm font-semibold text-yellow-400 mb-2">Brewing Recommendations:</h4>
+                  <p className="text-sm text-gray-300">{product.brewingRecommendations}</p>
                 </div>
               )}
 
-              {product?.caffeine && (
-                <div>
-                  <h4 className="text-sm font-semibold text-yellow-400 mb-2">Caffeine Content:</h4>
-                  <span className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">
-                    {product.caffeine}
-                  </span>
-                </div>
-              )}
             </div>
           )}
           <AddToCartButton product={product} />
@@ -189,4 +175,3 @@ const ProductPage = async ({
 };
 
 export default ProductPage;
-import ProductReviews from "@/components/ProductReviews";

@@ -6,10 +6,29 @@ import Container from '@/components/Container';
 import PriceFormatter from '@/components/PriceFormatter';
 import { CheckCircleIcon } from '@heroicons/react/24/solid';
 
+interface Product {
+  name: string;
+  price: number;
+}
+
+interface OrderItem {
+  product: Product;
+  quantity: number;
+}
+
+interface ShippingInfo {
+  firstName: string;
+  lastName: string;
+  address: string;
+  city: string;
+  state: string;
+  zipCode: string;
+}
+
 interface Order {
   id: string;
-  items: any[];
-  shippingInfo: any;
+  items: OrderItem[];
+  shippingInfo: ShippingInfo;
   subtotal: number;
   shipping: number;
   tax: number;
@@ -62,7 +81,7 @@ export default function OrderConfirmationPage() {
           <CheckCircleIcon className="w-16 h-16 text-green-500 mx-auto mb-6" />
           <h1 className="text-3xl font-bold mb-4">Order Confirmed!</h1>
           <p className="text-gray-400 mb-8">
-            Thank you for your order. We'll send you a confirmation email shortly.
+            Thank you for your order. We&apos;ll send you a confirmation email shortly.
           </p>
           
           <div className="bg-gray-900 rounded-lg p-6 mb-8 text-left">
@@ -141,9 +160,9 @@ export default function OrderConfirmationPage() {
           </div>
           
           <div className="mt-8 p-4 bg-gray-900 rounded-lg">
-            <h3 className="font-semibold mb-2">What's Next?</h3>
+            <h3 className="font-semibold mb-2">What&apos;s Next?</h3>
             <ul className="text-sm text-gray-400 space-y-1">
-              <li>• You'll receive an email confirmation shortly</li>
+              <li>• You&apos;ll receive an email confirmation shortly</li>
               <li>• Your coffee will be freshly roasted within 24 hours</li>
               <li>• Tracking information will be sent when your order ships</li>
               <li>• Estimated delivery: {estimatedDelivery.toLocaleDateString()}</li>

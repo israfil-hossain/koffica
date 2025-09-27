@@ -7,10 +7,34 @@ import { urlFor } from '@/sanity/lib/image';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+
+interface Product {
+  name: string;
+  price: number;
+  image?: SanityImageSource;
+}
+
+interface OrderItem {
+  product: Product;
+  quantity: number;
+}
+
+interface ShippingInfo {
+  firstName: string;
+  lastName: string;
+  address: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  email: string;
+  phone: string;
+}
+
 interface Order {
   id: string;
-  items: any[];
-  shippingInfo: any;
+  items: OrderItem[];
+  shippingInfo: ShippingInfo;
   subtotal: number;
   shipping: number;
   tax: number;
