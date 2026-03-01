@@ -9,10 +9,10 @@ import {  getSale, getProductsByAllCategories } from "@/sanity/helpers";
 import { DiscountBanner } from "@/components/DiscountBanner";
 
 export default async function Home() {
-  const sales = await getSale();
-
-  // Get categories and products for the menu
-  const { categories: menuCategories, productsByCategory } = await getProductsByAllCategories();
+  const [sales, { categories: menuCategories, productsByCategory }] = await Promise.all([
+    getSale(),
+    getProductsByAllCategories(),
+  ]);
 
   // Get products by navigation categories
   // const trendingProducts = await getTrendingProducts();

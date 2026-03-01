@@ -88,6 +88,7 @@ const Hero = () => {
 		 className="left-leaf"
          width={300}
 		 height={400}
+		 priority
 		/>
 		<Image
 		 src="/images/hero-right-leaf.png"
@@ -95,6 +96,7 @@ const Hero = () => {
 		 className="right-leaf"
          width={200}
 		 height={300}
+		 priority
 		/>
 
 		<div className="body">
@@ -123,7 +125,7 @@ const Hero = () => {
 		 ref={videoRef}
 		 muted
 		 playsInline
-		 preload="auto"
+		 preload="none"
 		 src="/videos/output.mp4"
 		/>
 	 </div>
